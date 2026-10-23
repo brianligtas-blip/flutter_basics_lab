@@ -1,10 +1,12 @@
+- Moving _glasses++ outside setState() increases the glass count internally, but the UI may not update because Flutter is not notified to rebuild the widget. Putting it back inside setState() allows Flutter to update the displayed count when the + button is tapped.
+
 build() called: 1 glasses
 build() called: 2 glasses
 build() called: 3 glasses
 
-When I removed Expanded from the Rain StatBox, it no longer shared the available width equally with the Humidity and Wind boxes. The Rain box became narrower because its width depended on its content and layout constraints, while the other two boxes continued to expand. This demonstrated that Expanded helps distribute the available space equally among widgets in a Row.
+- When I removed Expanded from the Rain StatBox, it no longer shared the available width equally with the Humidity and Wind boxes. The Rain box became narrower because its width depended on its content and layout constraints, while the other two boxes continued to expand. This demonstrated that Expanded helps distribute the available space equally among widgets in a Row.
 
-The buttons became more rounded because the corner radius increased from 8 to 20, giving the interface a softer appearance.
+- The buttons became more rounded because the corner radius increased from 8 to 20, giving the interface a softer appearance.
 
 1. A StatelessWidget does not manage changing state, while a StatefulWidget can update its UI when its state changes. An example of a StatelessWidget is ProfileCard in Activity 1, while WaterTrackerPage in Activity 2 is a StatefulWidget.
 2. A StatefulWidget uses two classes because one defines the widget and the other manages its changing state. The StatefulWidget class creates the widget, while the State class stores changing data and rebuilds the UI when setState() is called.
